@@ -8,9 +8,20 @@
 	    {{ $post->user->name }} on 
 	    {{ $post->created_at->toFormattedDateString() }}
 	</p>
+
 	<p class="blog-post-body">
 		{{ $post->body }}
 	</p>
+
+    @if(count($post->tags))
+	<p class="blog-post-tags">
+		<ul class="tags">
+			@foreach($post->tags as $tag)
+			    <li><a href="/posts/tags/{{ $tag->name }}">{{ $tag->name }}</a></li>
+			@endforeach
+		</ul>
+	</p>
+	@endif
     
     <br />
 
