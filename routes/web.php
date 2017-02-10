@@ -11,6 +11,22 @@
 |
 */
 
+// App::bind('App\Billing\Stripe', function(){
+// 	return new \App\Billing\Stripe(config('services.stripe.secret'));
+// });
+
+App::singleton('App\Billing\Stripe', function(){
+	return new \App\Billing\Stripe(config('services.stripe.secret'));
+});
+
+// $stripe = App::make('App\Billing\Stripe');
+// $stripe = app('App\Billing\Stripe');
+// $stripe = resolve('App\Billing\Stripe'); // note: choose this helper function
+
+App::instance('App\Billing\Strip', $stripe);
+
+dd($stripe);
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
