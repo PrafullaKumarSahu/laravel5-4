@@ -52,4 +52,11 @@ class Post extends Model
 
         return $archives;
     }
+
+    public function tags()
+    {
+    	//1 post may have many tags
+    	//as well as a tag may belongs to many post
+    	return $this->belongsToMany(Tag::class);
+    }
 }
