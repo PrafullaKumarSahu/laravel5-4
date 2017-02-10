@@ -28,6 +28,7 @@
 // dd($stripe);
 
 Route::get('/', function () {
+	// return session("message");
     return view('welcome');
 })->name('home');
 

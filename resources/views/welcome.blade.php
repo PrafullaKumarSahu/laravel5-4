@@ -62,6 +62,14 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #flash-message{
+                color: #ff2255;
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                z-index: 10;
+            }
         </style>
     </head>
     <body>
@@ -75,6 +83,12 @@
                         <a href="{{ url('/register') }}">Register</a>
                     @endif
                 </div>
+            @endif
+
+            @if ( $flash = session('message') )
+            <div id="flash-message" class="alert alert-success" role="alert">
+              {{ $flash }}
+            </div>
             @endif
 
             <div class="content">

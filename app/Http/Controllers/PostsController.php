@@ -79,6 +79,7 @@ class PostsController extends Controller
         auth()->user()->publish(
         	    new Post(request(['title', 'body']))
         	);
+        session()->flash("message", "Your post is published now!");
     	//And redirect to the home page
     	return redirect('/');
     }

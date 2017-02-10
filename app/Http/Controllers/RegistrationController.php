@@ -46,6 +46,10 @@ class RegistrationController extends Controller
     	// return redirect()->route('home');
 
     	$request->persist();
+        
+        // request()->session();
+        session()->flash("message", "Thanks so much for signing up!");
+
     	return redirect()->home();
     }
 }
