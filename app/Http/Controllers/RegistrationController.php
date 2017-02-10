@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Mail\Welcome;
 
 class RegistrationController extends Controller
 {
@@ -28,6 +29,9 @@ class RegistrationController extends Controller
     		'email' => request('email'),
     		'password' => bcrypt(request('password'))
     		]);
+
+        //send them an email
+        \Mail::to($user)->send(new Welcome($user));
 
     	//signed them in
 

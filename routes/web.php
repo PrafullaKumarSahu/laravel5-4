@@ -21,11 +21,11 @@
 
 // $stripe = App::make('App\Billing\Stripe');
 // $stripe = app('App\Billing\Stripe');
-$stripe = resolve('App\Billing\Stripe'); // note: choose this helper function
+// $stripe = resolve('App\Billing\Stripe'); // note: choose this helper function
 
 // App::instance('App\Billing\Strip', $stripe);
 
-dd($stripe);
+// dd($stripe);
 
 Route::get('/', function () {
     return view('welcome');
