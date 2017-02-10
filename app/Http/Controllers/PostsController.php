@@ -11,6 +11,7 @@ class PostsController extends Controller
 	{
 		$this->middleware('auth')->except(['index', 'show']);
 	}
+	/*
     public function index()
     {
     	$posts = Post::latest()
@@ -29,7 +30,13 @@ class PostsController extends Controller
     	// return view('posts.index', compact('posts', 'archives'));
     	return view('posts.index', compact('posts'));
     }
+*/
+    public function index(Post $posts)
+    {
+    	$posts = $posts->all();
 
+    	return view('posts.index', compact('posts'));
+    }
     public function show(Post $post)
     {
     	// $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
