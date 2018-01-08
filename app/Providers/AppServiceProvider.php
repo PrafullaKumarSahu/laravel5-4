@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 use App\Billing\Stripe;
 
@@ -21,6 +22,8 @@ class AppServiceProvider extends ServiceProvider
             $tags = \App\Tag::has('posts')->pluck('name');
             $view->with(compact('archives', 'tags'));
         });
+
+        Schema::defaultStringLength(191);
     }
 
     /**

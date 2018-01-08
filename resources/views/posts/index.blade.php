@@ -5,7 +5,7 @@
 	  @if(count($posts))
 	      <div>
 	      @foreach($posts as $post)
-	          @include('partials.post', )
+	          @include('partials.post', $post )
 	      @endforeach
 	      </div>
 	  @endif

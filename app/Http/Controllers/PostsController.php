@@ -33,7 +33,7 @@ class PostsController extends Controller
 */
     public function index(Post $posts)
     {
-    	$posts = $posts->all();
+    	$posts = $posts->all()->random(3);
 
     	return view('posts.index', compact('posts'));
     }
@@ -81,6 +81,6 @@ class PostsController extends Controller
         	);
         session()->flash("message", "Your post is published now!");
     	//And redirect to the home page
-    	return redirect('/');
+    	return redirect('/posts');
     }
 }
